@@ -62,7 +62,7 @@ def main():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.bind(('', 8888))
     sock.settimeout(2)
-    sock.sendto(bytes(packet), (dns_ip, int(dns_port))) #@TODO add a parsearg for the remote IP
+    sock.sendto(bytes(packet), (dns_ip, int(dns_port)))
 
     print("Packet Sent")
 
