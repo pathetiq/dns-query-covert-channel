@@ -15,5 +15,3 @@ socket.bind(listen_on)
 while True:
 	data,source = socket.recvfrom(1024)
         print data.strip()
-
-
