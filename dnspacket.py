@@ -1,7 +1,6 @@
 import struct
 import socket
 import argparse
-import sys
 
 #@author Patrick Mathieu / @pathetiq
 # This code is an update from: 
