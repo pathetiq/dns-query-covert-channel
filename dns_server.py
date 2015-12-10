@@ -8,7 +8,7 @@ import socket
 import argparse
 
 parser = argparse.ArgumentParser(description='Process args.')
-parser.add_argument('-p','--port', help='DNS server port')
+parser.add_argument('-p','--port', help='DNS server port', required=True)
 args = parser.parse_args()
 dns_port = args.port.encode('utf-8')
 
