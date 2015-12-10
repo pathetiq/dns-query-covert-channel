@@ -36,9 +36,9 @@ class DnsPacketBuilder:
    
 def main():
     parser = argparse.ArgumentParser(description='Process args.')
-    parser.add_argument('-t','--dns', help='DNS server IP address')
-    parser.add_argument('-p','--port', help='DNS server port')
-    parser.add_argument('-d','--data', help='What do you want to extract today?')
+    parser.add_argument('-t','--dns', help='DNS server IP address', required=True)
+    parser.add_argument('-p','--port', help='DNS server port', required=True)
+    parser.add_argument('-d','--data', help='What do you want to extract today?', required=True)
     args = parser.parse_args()
     dns_ip = args.dns.encode('utf-8')
     dns_port = args.port.encode('utf-8')
